@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(VulkanTest VERSION 0.1.0)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(VulkanTest main.cpp)
+
+find_package(glfw3 3.3 REQUIRED)
+target_link_libraries(VulkanTest glfw)
+
+find_package(Vulkan REQUIRED)
+target_include_directories(VulkanTest PRIVATE ${Vulkan_INCLUDE_DIRS})
+target_link_libraries(VulkanTest ${Vulkan_LIBRARIES})
